@@ -1,0 +1,19 @@
+server:
+  port: 7002
+
+spring:
+  application:
+    name: cloud-eureka-server7002
+
+eureka:
+  instance:
+    hostname: eureka7002.com
+    lease-renewal-interval-in-seconds: 1  #发送心跳间隔 每间隔多少秒发送心跳验证
+    lease-expiration-duration-in-seconds: 2 #等待多少秒 删除不可用注册的client
+  client:
+    register-with-eureka: false #是否向注册中心注册自己
+    fetch-registry: false       #是否是注册中心，是否需要枷锁服务 false:服务中心 true:注册服务
+    service-url:
+      defaultZone:  http://eureka7001.com:7001/eureka
+  server:
+    enable-self-preservation: true #启用eureka自我保护  false关闭自我保护机制

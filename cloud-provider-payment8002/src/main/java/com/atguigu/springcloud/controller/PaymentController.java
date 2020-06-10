@@ -2,12 +2,12 @@ package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
-import com.atguigu.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
+import com.atguigu.springcloud.service.PaymentService;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -41,7 +41,7 @@ public class PaymentController
         Payment payment = paymentService.getPaymentById(id);
         log.info("sssss"+"*****查询结果111："+payment+"32323dssdsd");
         if (payment!=null){  //说明有数据，能查询成功
-            return new CommonResult(200,"查询成功.serverPort:"+serverPort,payment);
+            return new CommonResult(200,"查询成功,serverPort:"+serverPort,payment);
         }else {
             return new CommonResult(444,"没有对应记录，查询ID："+id,null);
         }
